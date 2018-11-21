@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
  
+ #include <android/log.h>
+ 
 #if 0
 typedef struct {
     char *name;          /* Java里调用的函数名 */
@@ -13,16 +15,19 @@ typedef struct {
 
 jint ledOpen(JNIEnv *env, jobject cls)
 {
+	__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native_ledOpen ...");
 	return 0;
 }
 
 void ledClose(JNIEnv *env, jobject cls)
 {
+	__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native_ledClose ...");
 	return;
 }
 
 jint ledCtrl(JNIEnv *env, jobject cls, jint which, jint status)
 {
+	__android_log_print(ANDROID_LOG_DEBUG, "LEDDemo", "native_ledCtrl : %d, %d", which, status);
 	return 0;
 }
 
